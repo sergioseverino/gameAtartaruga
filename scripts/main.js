@@ -1,5 +1,4 @@
-const cards = 
-[
+const cards = [
     //cards object start here
        { cardId: 1,
          cardQuestion: 'Que lugar é este?',
@@ -47,7 +46,7 @@ const cards =
            },
     //card object ends here
     
-    ]; 
+    ];
 
 
 cards.sort(function(a, b){return 0.5 - Math.random()});
@@ -85,7 +84,7 @@ callCardN = callCardN + 1;
 reset();
 categoryColor();
 document.getElementById('mainCard').style.display = 'grid';
-} else {document.getElementById('next').innerHTML = 'End Game';}};
+} else {document.getElementById('next').innerHTML = 'End Game';}}
 
 //shuffle answer options
 async function options() {let numberRandom = Math.floor(Math.random() * 5);

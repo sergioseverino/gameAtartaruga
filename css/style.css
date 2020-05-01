@@ -1,7 +1,8 @@
 
-main {display: grid;}
 
-div { display: grid;
+
+div { display: inline;
+
 } 
 
 body {
@@ -37,7 +38,7 @@ grid-template-columns: auto;
 
 
 #mainCard {
-  display: grid;
+  display: block;
   grid-area: card;
   margin: 2em;
   justify-items: center;
