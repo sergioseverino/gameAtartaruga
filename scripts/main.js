@@ -3,7 +3,7 @@ const cards = [
        { cardId: 1,
          cardQuestion: 'Que lugar é este?',
          cardAnswer: 'Machu Pichu'	,
-         cardImg: './img/img4.JPG',
+         cardImg: './img/img4.jpg',
          cardImgDescription: 'Imagem de um animal',
          cardTip: 'É uma península com muita vida marinha na América do Sul ',
          category:	'lugares',
