@@ -157,12 +157,12 @@ flex-direction: row;
 	padding: 20px;
   border-radius: 15px;
   color : #ffffff;
-  transition: transform 300ms ease-in-out,
-              border-radius 200ms linear;
+  /* transition: transform 300ms ease-in-out,
+              border-radius 200ms linear; */
 }
-
+/* 
 .button:hover{
   transform: scale(1.1);
   border-radius: 10px;
   
-}
+} */
