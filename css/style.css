@@ -148,6 +148,7 @@ flex-direction: row;
 
 .button {
   align-self: center;
+  margin: 10px;
   font-size: 20px;
   font-weight: bolder;
   text-align: center;

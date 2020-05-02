@@ -59,6 +59,12 @@ let newArray = cards;
 
 let callCardN = 0;
 
+//check ontouch window 
+let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+
+// Then we bind via thát event. This way we only bind one event, instead of the two as below
+document.getElementById('hbs').addEventListener(touchEvent, someFunction);
+
 // CHECK
 //console.log(newArray[callCardN].cardQuestion)
 
@@ -91,7 +97,8 @@ categoryColor();
 document.getElementById('mainCard').style.display = 'block';
 document.getElementById('abertura').style.display = 'none';
 startGame();
-} else if (document.getElementById('next').innerHTML == 'RECOMEÇAR') {return novoGame()}
+} else if (document.getElementById('next').innerHTML == 'RECOMEÇAR') 
+{return novoGame()}
 else {document.getElementById('next').innerHTML = 'RECOMEÇAR'}
 
 }
@@ -105,6 +112,7 @@ const startGame = () => {if(document.getElementById('next').textContent = 'VAMOS
 const novoGame = () => {
     checkClicked = false;
     callCardN = 0;
+    pontos = 0;
     document.getElementById('pontos').innerHTML = 0;
     document.getElementById('mainCard').style.display = 'none';
     document.getElementById('abertura').style.display = 'flex';
