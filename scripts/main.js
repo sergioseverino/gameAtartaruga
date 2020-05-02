@@ -56,14 +56,8 @@ const cards = [
 cards.sort(function(a, b){return 0.5 - Math.random()});
 
 let newArray = cards;
-
 let callCardN = 0;
 
-//check ontouch window 
-let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
-
-// Then we bind via thát event. This way we only bind one event, instead of the two as below
-document.getElementById('hbs').addEventListener(touchEvent, someFunction);
 
 // CHECK
 //console.log(newArray[callCardN].cardQuestion)
