@@ -68,7 +68,7 @@ let cardAnswer1El = document.getElementById('answer1');
 let cardAnswer2El = document.getElementById('answer2');
 let cardAnswer3El = document.getElementById('answer3');
 
-document.getElementById("next").onclick = function () {nextCardAction()};
+document.getElementById("next").onclick = document.getElementById("next").ontouch = function () {nextCardAction()};
 
 
 //STYLE CARDS
