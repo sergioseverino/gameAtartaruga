@@ -3,46 +3,50 @@ const cards = [
        { cardId: 1,
          cardQuestion: 'Que lugar é este?',
          cardAnswer: 'Machu Pichu'	,
-         cardImg: './img/img4.jpg',
+         cardImg: './img/img4.JPG',
          cardImgDescription: 'Imagem de um animal',
          cardTip: 'É uma península com muita vida marinha na América do Sul ',
          category:	'lugares',
-         level: 'médio',
+         level: 'medio',
          fakes: {fake1: 'Aconcagua',
                 fake2: 'Estreito de Magalhães',
                 fake3: 'Deserto do Atacama',
                 fake4: 'Praia Comprida',
-            }        
+            },
+        cardHistory: 'Este é um lugar maravilhoso, foi construído pelo civilização Inca em 1200dC. Sofia e Rafael fizeram uma bela caminhada de 11km para chegar lá'        
         },
     //card object ends here
         { cardId: 2, 
             cardQuestion: 'Que lugar é este?',
             cardAnswer: 'Epecuen'	,
-            cardImg: './img/img6.jpg',
+            cardImg: './img/img6.JPG',
             cardImgDescription: 'Imagem de Montanhas',
             cardTip: 'Conjunto de montanhas no sul da Patagônia',
             category: 'lugares',
-            level: 'médio',
+            level: 'dificil',
             fakes: {fake1: 'Aconcagua',
                    fake2: 'Estreito de Magalhães',
                    fake3: 'Deserto do Atacama',
                    fake4: 'Praia Comprida',
-               }        
+               },
+               cardHistory: 'Está é uma antiga cidade a beira de um lago salgado, mas um dia o lago encheu e cobriu toda cidade, em 2010 o lago secou novamente, e restaram os escombros e as lembranças da velha cidade.'        
+                
            },
     //card object ends here
         { cardId : 3,
             cardQuestion: 'Que animal é este?',
             cardAnswer: 'Águia Americana '	,
-            cardImg: './img/img1.jpg',
+            cardImg: './img/img1.JPG',
             cardImgDescription: 'Imagem de um animal',
             cardTip: 'É uma península com muita vida marinha na América do Sul ',
             category: 'animais',
-            level: 'médio',
+            level: 'facil',
             fakes: {fake1: 'Urso de Óculos',
                    fake2: 'Gaivota',
                    fake3: 'Condor',
                    fake4: 'Pelicano',
-               }        
+               },
+            cardHistory: 'Vimos muitos Águias pelo caminho, principalmente no Alasca, onde passavam o dia pegando peixes. Ela é um símbolo dos Estados Unidos.'        
            },
     //card object ends here
     
@@ -70,12 +74,13 @@ document.getElementById("next").onclick = function () {nextCardAction()};
 //STYLE CARDS
 let categoryColor = function(){if(newArray[callCardN-1].category == 'animais'){
     document.getElementById('mainCard').style.backgroundColor = '#c4ff94'} 
-    if(newArray[callCardN-1].category == 'lugares'){document.getElementById('mainCard').style.backgroundColor = '#98c0ff'} 
-else{console.log('error')};};
+    if(newArray[callCardN-1].category == 'lugares')
+    {document.getElementById('mainCard').style.backgroundColor = '#98c0ff'} 
+};
 
 
 
-// NEXT CARD
+// NEXT CARD button
 async function nextCardAction() {if (callCardN < newArray.length)
 {cardImgEl.src = newArray[callCardN].cardImg;
 cardQuestionEl.innerHTML = '<h1>'+newArray[callCardN].cardQuestion+ '</h1>';
@@ -83,8 +88,27 @@ options();
 callCardN = callCardN + 1;
 reset();
 categoryColor();
-document.getElementById('mainCard').style.display = 'grid';
-} else {document.getElementById('next').innerHTML = 'End Game';}}
+document.getElementById('mainCard').style.display = 'block';
+document.getElementById('abertura').style.display = 'none';
+startGame();
+} else if (document.getElementById('next').innerHTML == 'RECOMEÇAR') {return novoGame()}
+else {document.getElementById('next').innerHTML = 'RECOMEÇAR'}
+
+}
+
+
+const startGame = () => {if(document.getElementById('next').textContent = 'VAMOS LÁ!'){
+    return document.getElementById('next').innerText = 'CONTINUAR'}
+}
+
+
+const novoGame = () => {
+    checkClicked = false;
+    callCardN = 0;
+    document.getElementById('pontos').innerHTML = 0;
+    document.getElementById('mainCard').style.display = 'none';
+    document.getElementById('abertura').style.display = 'flex';
+    document.getElementById('next').innerHTML = 'VAMOS LÁ!'}
 
 //shuffle answer options
 async function options() {let numberRandom = Math.floor(Math.random() * 5);
@@ -109,32 +133,60 @@ else if(numberRandom == 2)
         cardAnswer3El.innerHTML = newArray[callCardN].cardAnswer}
 }
 
+//PONTUACAO
+
+let pontos = 0
+
+const pontuacao = (levelcard) => {if(levelcard == 'facil'){pontos = pontos + 20} 
+else if(levelcard == 'medio') {pontos = pontos + 50} else {
+    pontos = pontos + 80
+} 
+{return document.getElementById('pontos').innerHTML = pontos}
+};
+
+
+
+
+// console.log(level);
+console.log(pontos);
 
 //CHECK ANSWER
 
 let checkClicked = false
 
 
-document.getElementById('answer1').onclick = function(){if(!checkClicked){if(document.getElementById('answer1').textContent == newArray[callCardN-1].cardAnswer){
-    document.getElementById('answer1').style.borderColor = 'green'}else{  
+document.getElementById('answer1').onclick = function(){if(!checkClicked)
+    {if(document.getElementById('answer1').textContent == newArray[callCardN-1].cardAnswer){
+    document.getElementById('answer1').style.borderColor = 'green';
+    pontuacao(newArray[callCardN-1].level);
+}else{  
         document.getElementById('answer1').style.borderColor = 'red'}};
         checkClicked = true
-        console.log(checkClicked)
+      console.log(pontos)
 
 }
 
-document.getElementById('answer2').onclick = function(){if(!checkClicked){if(document.getElementById('answer2').textContent == newArray[callCardN-1].cardAnswer){
-    document.getElementById('answer2').style.borderColor = 'green'}else{
+
+document.getElementById('answer2').onclick = function(){if(!checkClicked)
+    {if(document.getElementById('answer2').textContent == newArray[callCardN-1].cardAnswer){
+    document.getElementById('answer2').style.borderColor = 'green';
+  
+    pontuacao(newArray[callCardN-1].level);
+}else{
         document.getElementById('answer2').style.borderColor = 'red'}};
-        checkClicked = true
+        checkClicked = true;
+        console.log(pontos)
 }
 
-document.getElementById('answer3').onclick = function(){if(!checkClicked){if(document.getElementById('answer3').textContent == newArray[callCardN-1].cardAnswer){
-    document.getElementById('answer3').style.borderColor = 'green'}else{
+document.getElementById('answer3').onclick = function(){if(!checkClicked)
+    {if(document.getElementById('answer3').textContent == newArray[callCardN-1].cardAnswer){
+    document.getElementById('answer3').style.borderColor = 'green';
+    pontuacao(newArray[callCardN-1].level);
+}else{
     document.getElementById('answer3').style.borderColor = 'red'}};
-    checkClicked = true
+    checkClicked = true;
+    console.log(pontos)
 }
-
 
 
 // #greenCard {color: #c4ff94;}
