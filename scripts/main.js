@@ -71,7 +71,7 @@ let cardAnswer3El = document.getElementById('answer3');
 /// ONCLICK BOTAO
 
 
-document.getElementById("next").onclick = document.getElementById("next").ontouchstart = function () {nextCardAction()};
+// document.getElementById("next").onclick = document.getElementById("next").ontouchstart = function () {nextCardAction()};
 
 
 //STYLE CARDS
