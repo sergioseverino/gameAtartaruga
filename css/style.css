@@ -40,12 +40,12 @@
   border-bottom-right-radius: 15px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-
+text-align: center;
   color : #ffffff;
  
 }
 
- #lower {
+#lower {
 display: flex;
 flex-wrap: wrap;
 flex-direction: row;
@@ -55,6 +55,16 @@ padding: 10px;
 align-content: flex-end;
 } 
 
+#pointsBoard {display: none;
+}
+
+.dicaBox { 
+  display: none;
+}
+
+.quadroPontos {
+  display: block;  
+}
 
 #mainCard {
   display: none;
@@ -147,7 +157,6 @@ flex-direction: row;
 
 
 .button {
-  align-self: center;
   margin: 10px;
   font-size: 20px;
   font-weight: bolder;
@@ -157,12 +166,12 @@ flex-direction: row;
 	padding: 20px;
   border-radius: 15px;
   color : #ffffff;
-  /* transition: transform 300ms ease-in-out,
+   /* transition: transform 300ms ease-in-out,
               border-radius 200ms linear; */
 }
-/* 
+
 .button:hover{
   transform: scale(1.1);
-  border-radius: 10px;
+  border-radius: 100px;
   
-} */
+}

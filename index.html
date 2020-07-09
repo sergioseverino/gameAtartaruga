@@ -4,23 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
- <!-- <link rel="stylesheet" href="./css/stylereset.css"> -->
+    <title>Game A Tartaruga</title>
 
- <link rel="stylesheet" href="./css/style.css">
-
+<link rel="stylesheet" href="./css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto|Sigmar+One&display=swap" rel="stylesheet">
 
 </head>
 <body>
-    <header>
+  <header>
 
-    </header>
-    <main>
-    <div id="abertura" class="abertura"><img class="logo" src="./img/logo_tartaruga.jpg" alt="logo a Tartaruga Game"></div>
+  </header>
+  <main>
+    <div id="abertura" class="abertura">
+      <div>
+        <img class="logo" src="./img/logo_tartaruga.jpg" alt="logo a Tartaruga Game">
+     
+      </div>
+      <form>
+        <div>Configurar
+          <hr>
+          <p> escolha a dificuldade:</p>
+          <div>
+            <form name="choiceLevel">
+             
+                <input type="radio" name="nivelEl" value="facil">
+                <label for="facil">Fácil</label>
+            
+                <input type="radio" name="nivelEl" value="medio" checked>
+                <label for="medio">Médio</label>
+              
+                <input type="radio" name="nivelEl" value="dificil">
+                <label for="dificil">Difícil</label>
+              
+            </form>
+          </div>
+          <hr>
+          <div>
+            <p>Escolha as categorias</p>
+            <input type="checkbox"  id="animais" name="categoria" value="animais" checked>Animais</input>
+            <input type="checkbox"  id="lugares" name="categoria" value="lugares" checked>Lugares</input>
+            <input type="checkbox"  id="cultura" name="categoria" value="cultura" checked>Cultura</input>
+            <input type="checkbox"  id="paises" name="categoria" value="paises" checked>Países</input>
+          </div>    
+          <hr>
+          <div>
+            <p>Som
+              <input type="checkbox"  id="som" name="som" value="ligado" checked>liga/desl.</input>
+            </p>
+          </div> 
+        </div>
+      </form >
+    </div>
         
     <div id="mainCard" class="questioncss">
-        <div id="imgCard" class="imgCard"><img id="cardImg" src="./img/placeholder.JPG"></div>
+        <div id="imgCard" class="imgCard"><img id="cardImg" src="./img/placeholder.JPG">
+        <div id="dicaBox" class="dicaBox">Dicas</div>
+          <button id="dicaButton" class="dica" onclick="dicaShow()">Dica</button>
+        </div>
         <div id="question" > <h1>Question</h1>   </div>
           <div id="allOptions">
             <ul>
@@ -39,14 +79,20 @@
     </div>    
       
     <div id="lower">
-            <div> <p id= "points" class="points"><p id="pontos">0</p><p class="pontos">PONTOS</p></div>
-            <div id="next" class="button" onclick="nextCardAction()">VAMOS<br>COMEÇAR!</div>
-            <!-- <div> <p id= "reiniciar" class="lowwinfo"> Recomeçar</p></div>  -->
+            
+        <div id="next" class="button" onclick="mainButton()">VAMOS<br>COMEÇAR!</div>
+        <div id="pointsBoard">
+            <div class="quadroPontos"> 
+                <p id="points" class="pontos">0</p>
+                <p>PONTOS</p>
+            </div>
+        </div>
     </div>
         
     
     
     </main>
     <script src = "scripts/main.js"></script>
+
 </body>
 </html>
