@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+  <h1>Cadastro CARDS a Tartaruga</h1>
+  <form action="http://localhost:3000/cards" method="POST" name="myForm">
+<label>PERGUNTA: </label><input type="text" name="cardQuestion"><br>
+<label>RESPOSTA: </label><input type="text" name="cardAnswer" id=""><br>
+<label>CAMINHO IMAGEM: </label><input type="text" name="cardImg" id=""><br>
+<label>DESCRICAO IMAGEM: </label><textarea type="text" name="cardImgDescription" rows="4" cols="50" id=""></textarea>
+<label>DICA: </label><input type="text" name="cardTip" id=""><br>
+Escolher Categoria :  <select class="menu" id="CATEGORIA" name="category" label="categoria">
+  <option value="animais">ANIMAIS</option>
+  <option value="lugares">LUGARES</option>
+  <option value="paises">PAISES</option>
+  <option value="cultura">CULTURA</option>
+</select>      
+____   Nível de Dificuldade : <select id="nivel" name="level">
+  <option value="facil">FACIL</option>
+  <option value="medio">MEDIO</option>
+  <option value="dificil">DIFICIL</option>
+</select><br>
+<label>fakes1: </label><input type="text" name="fakes1"><br>
+<label>fakes2: </label><input type="text" name="fakes2"><br>
+<label>fakes3: </label><input type="text" name="fakes3"><br>
+<label>fakes4: </label><input type="text" name="fakes4"><br>
+<label>HISTÓRICO </label><textarea type="text" name="cardHistory" rows="4" cols="50"></textarea>
+<label>LOCALIZACAO</label><input type="text" name="gps"><br>
+
+<button onclick="sendJSON()">ENVIAR JSON</button> 
+  </form> 
+ 
+  <script type="text/javascript">
+    function sendJSON(){
+        alert("Sending Json");
+        var xhr = new XMLHttpRequest();
+        xhr.open(form.method, form.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');  
+</body>
+</html>

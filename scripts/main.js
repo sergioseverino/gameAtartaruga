@@ -1,129 +1,91 @@
-const cards = [
-    //cards object start here
-       { cardId: 1,
-         cardQuestion: 'Que lugar é este?',
-         cardAnswer: 'Machu Pichu'	,
-         cardImg: './img/img4.jpg',
-         cardImgDescription: 'Imagem de um animal',
-         cardTip: 'Ruínas da civilização Inca',
-         category: 'lugares',
-         level: 'medio',
-         fakes: {fake1: 'Aconcagua',
-                fake2: 'Estreito de Magalhães',
-                fake3: 'Deserto do Atacama',
-                fake4: 'Praia Comprida',
-            },
-        cardHistory: 'Este é um lugar maravilhoso, foi construído pelo civilização Inca em 1200dC. Sofia e Rafael fizeram uma bela caminhada de 11km para chegar lá'        
-        },
-    //card object ends here
-        { cardId: 2, 
-            cardQuestion: 'Que lugar é este?',
-            cardAnswer: 'Epecuen'	,
-            cardImg: './img/img6.JPG',
-            cardImgDescription: 'Imagem de Montanhas',
-            cardTip: 'Cidade destruída pela elevação de um lago de sal',
-            category: 'lugares',
-            level: 'dificil',
-            fakes: {fake1: 'Aconcagua',
-                   fake2: 'Estreito de Magalhães',
-                   fake3: 'Deserto do Atacama',
-                   fake4: 'Praia Comprida',
-               },
-               cardHistory: 'Está é uma antiga cidade a beira de um lago salgado, mas um dia o lago encheu e cobriu toda cidade, em 2010 o lago secou novamente, e restaram os escombros e as lembranças da velha cidade.'        
-                
-           },
-    //card object ends here
-        { cardId : 3,
-            cardQuestion: 'Que animal é este?',
-            cardAnswer: 'Águia Americana '	,
-            cardImg: './img/img1.JPG',
-            cardImgDescription: 'Imagem de um animal',
-            cardTip: 'Ave símbolo dos Estados Unidos da América',
-            category: 'animais',
-            level: 'facil',
-            fakes: {fake1: 'Urso de Óculos',
-                   fake2: 'Gaivota',
-                   fake3: 'Condor',
-                   fake4: 'Pelicano',
-               },
-            cardHistory: 'Vimos muitos Águias pelo caminho, principalmente no Alasca, onde passavam o dia pegando peixes. Ela é um símbolo dos Estados Unidos.'        
-           },
-    
-//card object ends here
-    { cardId : 4,
-        cardQuestion: 'Que animal é este?',
-        cardAnswer: 'Urso Pardo'	,
-        cardImg: './img/img5.JPG',
-        cardImgDescription: 'Imagem de um animal',
-        cardTip: 'Gosta de dormir durante quase todo o inverno',
-        category: 'animais',
-        level: 'facil',
-        fakes: {fake1: 'Bisão',
-               fake2: 'Grilo',
-               fake3: 'Leão',
-               fake4: 'Alce',
-           },
-        fakesMedium: {fake1: 'Urso Polar',
-           fake2: 'Urso Preto',
-           fake3: 'Urso de Óculos',
-           fake4: 'Urso Escuro',
-       },
-        cardHistory: 'O urso pardo é um dos mais ferozes animais no continente americano, ele passa boa parte do inverno em hibernação e quando acorda precisa de muito alimento'        
-       },
-//card object ends here
-    
-    ];
-
 //// MENU CONFIGURAÇÃO listeners
 
-
 const radios = document.getElementsByName('nivelEl');
-console.log(radios[1].value);
-let levelChoice = null;
+let levelChose = 'medio';
+let levelChoice = '';
+
 for (let i = 0; i < radios.length; i++) {
     radios[i].addEventListener('change', function() {
         (levelChoice) ? levelChoice.value : null;
         if (this !== levelChoice) {
             levelChoice = this;
         }
+      return levelChose = levelChoice.value;
+ 
     });
 }
 
-let catAnimais = true;
+
+let catAnimais = 'animais';
 animais.addEventListener('change', e => {
-    e.target.checked ? catAnimais = 'true' : catAnimais = 'false';
-    console.log(catAnimais)
+    e.target.checked ? catAnimais = 'animais' : catAnimais = null;
+    console.log(catAnimais);
 });
 
-let catLugares = true;
+
+let catLugares = 'lugares';
 lugares.addEventListener('change', e => {
-    e.target.checked ? ccatLugares = 'true' : catLugares = 'false';
-    console.log(catLugares)
+    e.target.checked ? catLugares = 'lugares' : catLugares = null;
 });
 
-let catCultura = true;
+let catCultura = 'cultura';
 cultura.addEventListener('change', e => {
-    e.target.checked ? catCultura = 'true' : catCultura = 'false';
-    console.log(catCultura)
+    e.target.checked ? catCultura = 'cultura' : catCultura = null ; 
 });
 
-let catPaises = true;
+let catPaises = 'paises';
 paises.addEventListener('change', e => {
-    e.target.checked ? catPaises = 'true' : catPaises = 'false';
-    console.log(catPaises)  
-});
-
-let playSound = true;
-som.addEventListener('change', e => {
-    e.target.checked ? playSound = 'true' : playSound = 'false';
-    console.log(playSound)  
+    e.target.checked ? catPaises = 'paises' : catPaises = null ;
 });
 
 
 
 
+// sem som no momento
+// let playSound = true;
+// som.addEventListener('change', e => {
+//     e.target.checked ? playSound = 'true': playSound = 'false';
+// });
 
-let newCardsArr = cards.sort(function(a, b){return 0.5 - Math.random()});
+
+////////////////////////////
+
+let newCardsArr = [];
+
+
+function myfilter(array , test){
+    let passedTest =[];
+    for (let i = 0; i < array.length; i++) {
+       if(test( array[i]))
+          passedTest.push(array[i]);
+    }
+
+    return passedTest;
+}
+
+let passedCats = [];
+function selectByCategory(){
+    passedCats = myfilter(data , function(item){
+         return ((item.category == catAnimais) || (item.category == catLugares)|| (item.category == catPaises)|| (item.category == catCultura));   
+    });
+};
+
+const shuffleCards = () => {
+    selectByCategory();
+    let cardsByLevel = passedCats.filter(function(holder) {
+        return holder.level == levelChose;
+        });
+    let newArr = cardsByLevel.sort(function(a, b){return 0.5 - Math.random()});
+    
+    return newCardsArr = newArr;
+ 
+}
+
+////////////////////
+
+
+
+
 let callCardN = 0;
 let cardImgEl = document.getElementById('cardImg');
 let cardQuestionEl = document.getElementById('question');
@@ -141,6 +103,7 @@ let categoryColor = function(){if(newCardsArr[callCardN-1].category == 'animais'
 
 // NEXT CARD button
 const mainButton = () => {if (checkClicked){
+    shuffleCards();
     nextCardAction();
     } else {return window.alert("Escolha uma resposta, se precisar de uma dica clique no botão DICA")}
 }
@@ -195,10 +158,8 @@ const novoGame = () => {
     abertura.style.display = 'flex';
     next.innerHTML = 'VAMOS LÁ!';
     pointsBoard.style.display = 'none';
-    cards.sort(function(a, b){return 0.5 - Math.random()});
 }
 
-//shuffle answer options
 
 // const answerScramble = 
 

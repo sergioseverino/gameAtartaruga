@@ -1,0 +1,49 @@
+{
+  "cards": [
+    {
+      "cardQuestion": "dsfsd",
+      "cardAnswer": "sfs",
+      "cardImg": "fsdf",
+      "cardImgDescription": "sf",
+      "cardTip": "sdf",
+      "category": "sdf",
+      "level": "sdf",
+      "fakes1": "sdf",
+      "fakes2": "sdf",
+      "fakes3": "df",
+      "fakes4": "sdfs",
+      "cardHistory": "sdfsd",
+      "id": 2
+    },
+    {
+      "cardQuestion": "adadas",
+      "cardAnswer": "asd",
+      "cardImg": "dad",
+      "cardImgDescription": "asda",
+      "cardTip": "sdada",
+      "category": "asda",
+      "level": "dsasd",
+      "fakes1": "asd",
+      "fakes2": "dad",
+      "fakes3": "dasd",
+      "fakes4": "adasd",
+      "cardHistory": "asd",
+      "id": 3
+    },
+    {
+      "cardQuestion": "dfsdf",
+      "cardAnswer": "sdfsd",
+      "cardImg": "sfsd",
+      "cardImgDescription": "sdfsdfsdffsdfsdfsdfffsdfsdfsdfsdfsfsdsdfsdf fs sdfds fsd",
+      "cardTip": "sdf sdf",
+      "category": "fsdf sd",
+      "level": "f sdfsdf",
+      "fakes1": "sfsdfsd",
+      "fakes2": "sdfs",
+      "fakes3": "sdfs",
+      "fakes4": "sdfsf",
+      "cardHistory": "sdfs",
+      "id": 4
+    }
+  ]
+}
