@@ -50,7 +50,7 @@ paises.addEventListener('change', e => {
 
 ////////////////////////////
 
-let newCardsArr = [];
+let newCardsArr = data;
 
 
 function myfilter(array , test){
@@ -66,14 +66,14 @@ function myfilter(array , test){
 let passedCats = [];
 function selectByCategory(){
     passedCats = myfilter(data , function(item){
-         return ((item.category == catAnimais) || (item.category == catLugares)|| (item.category == catPaises)|| (item.category == catCultura));   
+        return ((item.cardCategory == catAnimais) || (item.cardCategory == catLugares) || (item.cardCategory == catPaises)|| (item.cardCategory == catCultura));   
     });
 };
 
 const shuffleCards = () => {
     selectByCategory();
     let cardsByLevel = passedCats.filter(function(holder) {
-        return holder.level == levelChose;
+        return holder.cardLevel == levelChose;
         });
     let newArr = cardsByLevel.sort(function(a, b){return 0.5 - Math.random()});
     
@@ -94,9 +94,9 @@ let cardAnswer2El = document.getElementById('answer2');
 let cardAnswer3El = document.getElementById('answer3');
 
 //STYLE CARDS
-let categoryColor = function(){if(newCardsArr[callCardN-1].category == 'animais'){
+let categoryColor = function(){if(newCardsArr[callCardN-1].cardCategory == 'animais'){
     mainCard.style.backgroundColor = '#c4ff94'} 
-    if(newCardsArr[callCardN-1].category == 'lugares')
+    if(newCardsArr[callCardN-1].cardCategory == 'lugares')
     {mainCard.style.backgroundColor = '#98c0ff'} 
 };
 
@@ -167,22 +167,22 @@ async function options() {
     let numberRandom = Math.floor(Math.random() * 5);
     if(numberRandom == 1) {
         cardAnswer1El.innerHTML = newCardsArr[callCardN].cardAnswer;
-        cardAnswer2El.innerHTML = newCardsArr[callCardN].fakes.fake1;
-        cardAnswer3El.innerHTML = newCardsArr[callCardN].fakes.fake2;}
+        cardAnswer2El.innerHTML = newCardsArr[callCardN].cardFakes1;
+        cardAnswer3El.innerHTML = newCardsArr[callCardN].cardFakes2;}
     else if(numberRandom == 2){
-        cardAnswer1El.innerHTML = newCardsArr[callCardN].fakes.fake1;
+        cardAnswer1El.innerHTML = newCardsArr[callCardN].cardFakes1;
         cardAnswer2El.innerHTML = newCardsArr[callCardN].cardAnswer;
-        cardAnswer3El.innerHTML = newCardsArr[callCardN].fakes.fake2;}
+        cardAnswer3El.innerHTML = newCardsArr[callCardN].cardFakes2;}
     else if(numberRandom == 3){
-        cardAnswer1El.innerHTML = newCardsArr[callCardN].fakes.fake3;
+        cardAnswer1El.innerHTML = newCardsArr[callCardN].cardFakes3;
         cardAnswer2El.innerHTML = newCardsArr[callCardN].cardAnswer;
-        cardAnswer3El.innerHTML = newCardsArr[callCardN].fakes.fake4;} 
+        cardAnswer3El.innerHTML = newCardsArr[callCardN].cardFakes4;} 
     else if(numberRandom == 4){
-        cardAnswer1El.innerHTML = newCardsArr[callCardN].fakes.fake4;
-        cardAnswer2El.innerHTML = newCardsArr[callCardN].fakes.fake2;
+        cardAnswer1El.innerHTML = newCardsArr[callCardN].cardFakes4;
+        cardAnswer2El.innerHTML = newCardsArr[callCardN].cardFakes2;
         cardAnswer3El.innerHTML = newCardsArr[callCardN].cardAnswer;}  
-    else {cardAnswer1El.innerHTML = newCardsArr[callCardN].fakes.fake1;
-        cardAnswer2El.innerHTML = newCardsArr[callCardN].fakes.fake2;
+    else {cardAnswer1El.innerHTML = newCardsArr[callCardN].cardFakes1;
+        cardAnswer2El.innerHTML = newCardsArr[callCardN].cardFakes2;
         cardAnswer3El.innerHTML = newCardsArr[callCardN].cardAnswer}
 }
 
@@ -205,7 +205,7 @@ let checkClicked = true
 answer1.onclick = function(){if(!checkClicked)
     {if(answer1.textContent == newCardsArr[callCardN-1].cardAnswer){
         answer1.style.borderColor = 'green';
-        pontuacao(newCardsArr[callCardN-1].level);
+        pontuacao(newCardsArr[callCardN-1].cardLevel);
     }else{  
         answer1.style.borderColor = 'red'}};
         checkClicked = true
@@ -214,7 +214,7 @@ answer1.onclick = function(){if(!checkClicked)
 answer2.onclick = function(){if(!checkClicked)
     {if(answer2.textContent == newCardsArr[callCardN-1].cardAnswer){
         answer2.style.borderColor = 'green';
-        pontuacao(newCardsArr[callCardN-1].level);
+        pontuacao(newCardsArr[callCardN-1].cardLevel);
     }else{
         answer2.style.borderColor = 'red'}};
         checkClicked = true; 
@@ -223,7 +223,7 @@ answer2.onclick = function(){if(!checkClicked)
 answer3.onclick = function(){if(!checkClicked)
     {if(answer3.textContent == newCardsArr[callCardN-1].cardAnswer){
         answer3.style.borderColor = 'green';
-        pontuacao(newCardsArr[callCardN-1].level);
+        pontuacao(newCardsArr[callCardN-1].cardLevel);
     }else{
         answer3.style.borderColor = 'red'}};
         checkClicked = true; 

@@ -8,38 +8,49 @@
 </head>
 <body>
   <h1>Cadastro CARDS a Tartaruga</h1>
-  <form action="http://localhost:3000/cards" method="POST" name="myForm">
-<label>PERGUNTA: </label><input type="text" name="cardQuestion"><br>
-<label>RESPOSTA: </label><input type="text" name="cardAnswer" id=""><br>
-<label>CAMINHO IMAGEM: </label><input type="text" name="cardImg" id=""><br>
-<label>DESCRICAO IMAGEM: </label><textarea type="text" name="cardImgDescription" rows="4" cols="50" id=""></textarea>
-<label>DICA: </label><input type="text" name="cardTip" id=""><br>
-Escolher Categoria :  <select class="menu" id="CATEGORIA" name="category" label="categoria">
+  <form target="_blank" action="http://localhost:3000/cards" method="POST" name="myForm">
+<label>PERGUNTA: </label><input type="text" name="cardQuestion" required><br>
+<label>RESPOSTA: </label><input type="text" name="cardAnswer" id="" required><br>
+<label>CAMINHO IMAGEM: </label><input type="text" name="cardImg" id="" required><br>
+<label>DESCRICAO IMAGEM: </label><textarea type="text" name="cardImgDescription" rows="3" cols="30" id="" required></textarea>
+<label>DICA: </label><textarea type="text" name="cardTip" id="" rows="3" cols="30" required></textarea><br>
+Escolher Categoria :  <select class="menu" id="CATEGORIA" name="cardCategory" label="categoria" required>
   <option value="animais">ANIMAIS</option>
   <option value="lugares">LUGARES</option>
   <option value="paises">PAISES</option>
   <option value="cultura">CULTURA</option>
 </select>      
-____   Nível de Dificuldade : <select id="nivel" name="level">
+____   Nível de Dificuldade : <select id="nivel" name="cardLevel" required>
   <option value="facil">FACIL</option>
   <option value="medio">MEDIO</option>
   <option value="dificil">DIFICIL</option>
 </select><br>
-<label>fakes1: </label><input type="text" name="fakes1"><br>
-<label>fakes2: </label><input type="text" name="fakes2"><br>
-<label>fakes3: </label><input type="text" name="fakes3"><br>
-<label>fakes4: </label><input type="text" name="fakes4"><br>
-<label>HISTÓRICO </label><textarea type="text" name="cardHistory" rows="4" cols="50"></textarea>
-<label>LOCALIZACAO</label><input type="text" name="gps"><br>
-
+<label>fakes1: </label><input type="text" name="cardFakes1" required><br>
+<label>fakes2: </label><input type="text" name="cardFakes2" required><br>
+<label>fakes3: </label><input type="text" name="cardFakes3" required><br>
+<label>fakes4: </label><input type="text" name="cardFakes4" required><br>
+<label>HISTÓRICO </label><textarea type="text" name="cardHistory" rows="2" cols="30" required></textarea>
+<label>LOCALIZACAO</label><input type="text" name="cardGps" required><br>
+<label>Pais</label><input type="text" name="cardPais" required><br>
+Regiao : <select id="nivel" name="cardRegion" required>
+  <option value="ameriSul">América do Sul</option>
+  <option value="ameriCentral">América do Central</option>
+  <option value="ameriNorte">América do Norte</option></select>
 <button onclick="sendJSON()">ENVIAR JSON</button> 
   </form> 
- 
-  <script type="text/javascript">
+</body>
+
+
+</script>
+
+</html>
+
+  <!-- <script type="text/javascript">
     function sendJSON(){
         alert("Sending Json");
         var xhr = new XMLHttpRequest();
         xhr.open(form.method, form.action, true);
-        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');  
-</body>
-</html>
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        location.reload()} 
+
+</script> -->

@@ -93,6 +93,5 @@ textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus {
   border: 1px solid #6bd4b1;
   -webkit-text-fill-color: #2A293E;
-  -webkit-box-shadow: 0 0 0px 1000px #f8f4e5 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
