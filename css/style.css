@@ -175,3 +175,7 @@ flex-direction: row;
   border-radius: 100px;
   
 }
+
+#endGameEl {
+  display: none
+}

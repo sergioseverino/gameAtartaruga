@@ -41,11 +41,23 @@ paises.addEventListener('change', e => {
 
 
 
-// sem som no momento
-// let playSound = true;
-// som.addEventListener('change', e => {
-//     e.target.checked ? playSound = 'true': playSound = 'false';
-// });
+// sound track
+let playSound = true;
+som.addEventListener('change', e => {
+    e.target.checked ? playAudio() : pauseAudio();
+});
+
+var x = document.getElementById("myAudio"); 
+
+document.onload = playAudio()
+
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
 
 
 ////////////////////////////
@@ -123,7 +135,7 @@ async function nextCardAction() {
         startGame();
         dicaBox.style.display = 'none';
         dicaButton.style.display = '';
-        
+        cardsCount()
     } 
     else if (next.innerHTML == 'Recomeçar') {   
         return novoGame()}
@@ -159,7 +171,12 @@ const novoGame = () => {
     next.innerHTML = 'VAMOS LÁ!';
     pointsBoard.style.display = 'none';
 }
-
+// function endGame(){
+//     mainCard.style.display = 'none';
+//     abertura.style.display = 'none';
+//     endGameEl.style.display = 'flex';
+//     next.innerHTML = "fim de jogo";
+// }
 
 // const answerScramble = 
 
@@ -196,7 +213,7 @@ const pontuacao = (levelcard) => {if(levelcard == 'facil'){pontos = pontos + 20}
     } 
     {return points.innerHTML = pontos}
     };
-
+const cardsCount = () => {cardsCountEl.textContent = `Carta`+ callCardN + `de` + newCardsArr.length}
 
 //CHECK ANSWER
 
@@ -246,4 +263,5 @@ let reset = function(){
 //   console.log(document.getElementById.nivel())
 // }
 // }
+
 

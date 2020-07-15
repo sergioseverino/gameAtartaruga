@@ -1,11 +1,11 @@
 var xmlhttp = new XMLHttpRequest();
-var url = 'http://localhost:3000/cards';
+var url = 'http://localhost:3000/cardS';
 
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var myArr = JSON.parse(this.responseText);
         thearray(myArr);
-    }
+    } 
     return myArr;
     
 };
@@ -18,3 +18,10 @@ const thearray = (arr) => {
 data = arr
 return data}
 
+// resp.on('end', () => {
+//     console.log(JSON.parse(data).explanation);
+//   });
+
+// }).on("error", (err) => {
+//   console.log("Error: " + err.message);
+// });
