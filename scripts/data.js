@@ -18,10 +18,3 @@ const thearray = (arr) => {
 data = arr
 return data}
 
-// resp.on('end', () => {
-//     console.log(JSON.parse(data).explanation);
-//   });
-
-// }).on("error", (err) => {
-//   console.log("Error: " + err.message);
-// });

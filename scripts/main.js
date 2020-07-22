@@ -42,22 +42,20 @@ paises.addEventListener('change', e => {
 
 
 // sound track
-let playSound = true;
-som.addEventListener('change', e => {
-    e.target.checked ? playAudio() : pauseAudio();
-});
+// let playSound = true;
+// som.addEventListener('change', e => {
+//     e.target.checked ? playAudio() : pauseAudio();
+// });
 
-var x = document.getElementById("myAudio"); 
+// var x = document.getElementById("myAudio"); 
 
-document.onload = playAudio()
+// function playAudio() { 
+//   x.play(); 
+// } 
 
-function playAudio() { 
-  x.play(); 
-} 
-
-function pauseAudio() { 
-  x.pause(); 
-} 
+// function pauseAudio() { 
+//   x.pause(); 
+// } 
 
 
 ////////////////////////////
@@ -93,10 +91,7 @@ const shuffleCards = () => {
  
 }
 
-////////////////////
-
-
-
+//////////////////// globals
 
 let callCardN = 0;
 let cardImgEl = document.getElementById('cardImg');
@@ -263,5 +258,4 @@ let reset = function(){
 //   console.log(document.getElementById.nivel())
 // }
 // }
-
 

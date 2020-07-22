@@ -6,14 +6,59 @@
 
 body {
   background-size: cover;
-  width: 100vw;
+  width: 80vw;
   height: 100vh;
   display: grid;
+  column-count: 2;
   align-items: center;
   justify-items: center;
   font-size: 10pt;
   font-family: "Spartan";
   color: #2A293E;
+}
+
+.divtodo{
+  display: inline-block;
+  align-items: center;
+  justify-items: center;
+}
+.divum {
+  display: inline-block;
+  align-items: center;
+  justify-items: center;
+  width: 40vw;
+}
+
+.divdois {
+  display: inline-block;
+  align-items: center;
+  justify-items: center;
+  width: 20vw;
+  padding: 30px;
+  vertical-align: top;
+
+}
+
+.divtres {
+  display: inline-flex; 
+ align-items: center; 
+  justify-items: center;
+  width: 20vw;
+  padding: 30px;
+  vertical-align: text-bottom;
+
+}
+
+.divlista {  display: inline-flex; 
+  align-items: center; 
+   justify-items: center;
+   width: 20vw;
+   padding: 30px;
+   vertical-align: top;
+}
+
+.imagem {
+  width: 200px ;
 }
 
 label, input, textarea {
@@ -24,8 +69,14 @@ label, input, textarea {
   font-family: "Spartan";
 }
 
+#tempLi {
+  text-decoration-line: underline;
+  text-decoration-color: dodgerblue;
+  line-height: 1.5em;
+}
+
 input {
-  margin-bottom: 5pt;
+  margin-bottom: 10pt;
 }
 
 h3 {
@@ -59,14 +110,16 @@ input:focus, textarea:focus {
 }
 
 textarea {
-  resize: none;
+  resize: both;
 }
+
+
 
 button {
   display: block;
   float: right;
   line-height: 24pt;
-  padding: 0 20px;
+  padding: 5px 5px;
   border: none;
   background: #f45702;
   color: white;
@@ -74,6 +127,7 @@ button {
   transition: 0.2s all ease-in-out;
   border-bottom: 2px solid transparent;
   outline: none;
+  margin: 10px;
 }
 button:hover {
   background: inherit;
@@ -81,9 +135,7 @@ button:hover {
   border-bottom: 2px solid #f45702;
 }
 
-::selection {
-  background: #ffc7b8;
-}
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
