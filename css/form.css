@@ -57,6 +57,10 @@ body {
    vertical-align: top;
 }
 
+.divlang {
+  display: inline-flex;
+}
+
 .imagem {
   width: 200px ;
 }
@@ -129,6 +133,11 @@ button {
   outline: none;
   margin: 10px;
 }
+
+button:disabled {
+  background: #999;
+}
+
 button:hover {
   background: inherit;
   color: #f45702;

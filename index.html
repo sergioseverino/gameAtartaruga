@@ -7,12 +7,13 @@
     <title>Game A Tartaruga</title>
 
 <link rel="stylesheet" href="./css/style.css">
+
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto|Sigmar+One&display=swap" rel="stylesheet">
-<!-- <audio id="myAudio" autoplay hidden>
+<audio id="myAudio" hidden>
   <source src="../audio/bensound-sunny.mp3" type="audio/ogg">
   <source src="../audio/bensound-sunny.ogg" type="audio/mpeg">
   Your browser does not support the audio element.
-</audio>  -->
+</audio> 
 </head>
 <body>
   <header>
@@ -53,6 +54,21 @@
           </div>    
           <hr>
           <div>
+            <form name="langChoice">
+             
+                <input type="radio" name="langEl" value="PT-BR" checked>
+                <label for="PT-BR">Português</label>
+            
+                <input type="radio" name="langEl" value="EN-US">
+                <label for="EN-US">English</label>
+              
+                <input type="radio" name="langEl" value="ES-LA">
+                <label for="ES-LA">Español</label>
+              
+            </form>
+            </div>
+          <hr>
+          <div>
             <p>Som
               <input type="checkbox"  id="som" name="som" value="ligado" checked>liga/desl.</input>
             </p>
@@ -85,7 +101,7 @@
       
     <div id="lower">
             
-        <div id="next" class="button" onclick="mainButton()">VAMOS<br>COMEÇAR!</div>
+        <div id="next" class="button" onclick="mainButton()" >VAMOS<br>COMEÇAR!</div>
         <div id="pointsBoard">
             <div class="quadroPontos"> 
                 <p id="points" class="pontos">0</p>
@@ -110,8 +126,9 @@
    
     
     </main>
-    <script src = "scripts/data.js"></script>
-    <script src = "scripts/main.js"></script>
+    <script src = "./scripts/data.js"></script>
+    <script src = "./scripts/main.js"></script>
+
 
 </body>
 </html>

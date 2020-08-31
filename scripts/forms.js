@@ -1,48 +1,57 @@
 imagemForm = document.getElementById('imagemFormEl');
 callerNum = 0;
 
-const avancarImg = () =>{
+const avancarImg = () => {
     removeLi()
     callerNum = callerNum + 1;
     imagemForm.src = (`./img/img`+ callerNum + `_low.jpg`)
     myform.reset();
     document.getElementById('formCaminhoImagem').value = (`./img/img`+ callerNum + `_low.jpg`)
-    selectByImg()  
+    selectByImg()
+    disEnableBtn ()  
     };
 
-const voltarImg = () =>{ callerNum = callerNum - 1;
+const voltarImg = () => { callerNum = callerNum - 1;
     removeLi()
     imagemForm.src = (`./img/img`+ callerNum + `_low.jpg`)
     myform.reset();
     document.getElementById('formCaminhoImagem').value = (`./img/img`+ callerNum + `_low.jpg`)
     selectByImg()
+    disEnableBtn ()
     };
 
 formNumeroImg.addEventListener('change', doThing);
 
-function doThing(){
-    
+function doThing() { 
     imagemForm.src = (`./img/img`+ formNumeroImg.value + `_low.jpg`);
     document.getElementById('formCaminhoImagem').value = (`./img/img`+ formNumeroImg.value + `_low.jpg`);
     callerNum = parseInt(formNumeroImg.value);
-    console.log(callerNum , formNumeroImg.value)
     formNumeroImg.value = null;
+    removeLi()
     selectByImg()
-    myform.reset();
+    myform.reset(); 
+}
+
+const disEnableBtn = () => {if(callerNum <= 1) {document.getElementById("btnVolta").disabled = true} 
+        else {
+            document.getElementById("btnVolta").disabled = false}
+            }
+
+const carregaCartao = async x => {
+    codigoCartao = parseInt(x)
+    selectById(codigoCartao)
+    await cardToShow[0] ? populate(myform, cardToShow[0])
     
-};
-
-
-function carregaCartao(x){
-    let codigoId = parseInt(x) - 1
-    data[codigoId] ? populate(myform, data[codigoId]) : myform.reset()     
+        : myform.reset()     
             removeLi()
-            imagemForm.src = data[codigoId].cardImg
+            if(cardToShow[0] != null){imagemForm.src = cardToShow[0].cardImg} else {formNumeroImg.value = null};
             selectByImg()
+
 };
 
-function populate(form, data) {
-	for (var key in data) {
+const populate = (form, data, key) => {
+    codigoCartaoPronto.value = '';
+    	for (var key in data) {
 		if (! data.hasOwnProperty(key)) {
 			continue;
 		}
@@ -111,7 +120,7 @@ function populate(form, data) {
 	}
 };
 
-function myfilterCard(array , test){
+const myfilterCard = (array , test) => {
     let passedTest =[];
     for (let i = 0; i < array.length; i++) {
        if(test( array[i]))
@@ -124,21 +133,23 @@ let passedCards = [];
 let cardX = document.getElementById('formCaminhoImagem');
 let thelist = document.createElement('div');
 
-
-function selectByImg(){ 
+const selectByImg = () => { 
     let cardsData = data
     passedCards = myfilterCard(cardsData, function(item){
         return (item.cardImg == cardX.value)});
         generatelist()
         }
 
+const selectById = (theCardId) => { 
+            cardToShow = myfilterCard(data, function(item){
+                return (item.id === theCardId)});
+                }
 
-function generatelist () {
-    passedCards.forEach(function listfunction(value, key){  
-            // const verCard = document.createElement('<button>')
+const generatelist = () => {
+    passedCards.forEach(function listfunction(value){  
             let atribibtn = document.createAttribute('onclick')
             atribibtn.value = `carregaCartao(${value.id})`
-            listaItem = value.id + ' -- '+ value.cardLevel + ' -- '+ value.cardCategory;
+            listaItem = value.id + ' -- '+ value.cardLevel + ' -- '+ value.cardCategory + ' -- ' + value.lang;
             let criali = document.createElement('li') 
             criali.setAttributeNode(atribibtn)
             criali.append(listaItem)
@@ -147,14 +158,32 @@ function generatelist () {
     let atribli = document.createAttribute("id")
     atribli.value = 'tempLi'
     thelist.setAttributeNode(atribli)
-    listadosCartoes.append(thelist)};
+    listadosCartoes.append(thelist)}
 
-
-function removeLi () {
+const removeLi = () => {
     if(tempLi != null) {
         let getLi = document.getElementById('tempLi')
         getLi.remove()
         thelist = document.createElement('div')} 
 }
+
+
+
+
+const removeCard = (cardtoremove) => {
+    fetch(`http://localhost:3000/cards/${cardtoremove}`, {
+method: 'DELETE'
+})
+}
+
+// function getCartao (cartaoId) {
+//     fetch(`http://localhost:3000/cards/${cardtoremove}`, {
+// method: 'GET'
+// });
+// let cardsolo =  JSON.parse(this.responseText)
+// console.log(cardsolo)
+
+// }
+
 
 

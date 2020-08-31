@@ -1,9 +1,11 @@
 //// MENU CONFIGURAÇÃO listeners
 
 const radios = document.getElementsByName('nivelEl');
+const radiosLang = document.getElementsByName('langEl')
+console.log(radiosLang)
+
 let levelChose = 'medio';
 let levelChoice = '';
-
 for (let i = 0; i < radios.length; i++) {
     radios[i].addEventListener('change', function() {
         (levelChoice) ? levelChoice.value : null;
@@ -11,9 +13,21 @@ for (let i = 0; i < radios.length; i++) {
             levelChoice = this;
         }
       return levelChose = levelChoice.value;
- 
     });
 }
+
+let langChoice = 'PT-BR';
+let langChose = 'PT-BR'
+for (let i = 0; i < radiosLang.length; i++) {
+    radiosLang[i].addEventListener('change', function() {
+        (langChoice) ? langChoice.value : null;
+        if (this !== langChoice) {
+            langChoice = this;
+        }
+      return langChose = langChoice.value;
+    });
+}
+console.log(langChose)
 
 
 let catAnimais = 'animais';
@@ -41,24 +55,24 @@ paises.addEventListener('change', e => {
 
 
 
-// sound track
-// let playSound = true;
-// som.addEventListener('change', e => {
-//     e.target.checked ? playAudio() : pauseAudio();
-// });
+// sound track DESLIGADO FALSE
+let playSound = true;
+som.addEventListener('change', e => {
+    e.target.checked ? playAudio() : pauseAudio();
+});
 
-// var x = document.getElementById("myAudio"); 
+var x = document.getElementById("myAudio"); 
 
-// function playAudio() { 
-//   x.play(); 
-// } 
+function playAudio() { 
+  x.play(); 
+} 
 
-// function pauseAudio() { 
-//   x.pause(); 
-// } 
+function pauseAudio() { 
+  x.pause(); 
+} 
 
 
-////////////////////////////
+//////////////////////////
 
 let newCardsArr = data;
 
@@ -69,7 +83,6 @@ function myfilter(array , test){
        if(test( array[i]))
           passedTest.push(array[i]);
     }
-
     return passedTest;
 }
 
@@ -80,13 +93,14 @@ function selectByCategory(){
     });
 };
 
+
 const shuffleCards = () => {
     selectByCategory();
     let cardsByLevel = passedCats.filter(function(holder) {
-        return holder.cardLevel == levelChose;
+        return holder.cardLevel == levelChose && holder.lang == langChose;    
         });
     let newArr = cardsByLevel.sort(function(a, b){return 0.5 - Math.random()});
-    
+ 
     return newCardsArr = newArr;
  
 }

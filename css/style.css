@@ -179,3 +179,43 @@ flex-direction: row;
 #endGameEl {
   display: none
 }
+
+
+/* CSS */
+--brink-pink: hsla(346, 91%, 65%, 1);
+--capri: hsla(197, 100%, 59%, 1);
+--corn: hsla(55, 88%, 67%, 1);
+--caribbean-green: hsla(164, 95%, 43%, 1);
+--sapphire: hsla(223, 60%, 42%, 1);
+
+/* SCSS HEX */
+$brink-pink: #f7567cff;
+$capri: #30c5ffff;
+$corn: #f5e960ff;
+$caribbean-green: #06d6a0ff;
+$sapphire: #2b50aaff;
+
+/* SCSS HSL */
+$brink-pink: hsla(346, 91%, 65%, 1);
+$capri: hsla(197, 100%, 59%, 1);
+$corn: hsla(55, 88%, 67%, 1);
+$caribbean-green: hsla(164, 95%, 43%, 1);
+$sapphire: hsla(223, 60%, 42%, 1);
+
+/* SCSS RGB */
+$brink-pink: rgba(247, 86, 124, 1);
+$capri: rgba(48, 197, 255, 1);
+$corn: rgba(245, 233, 96, 1);
+$caribbean-green: rgba(6, 214, 160, 1);
+$sapphire: rgba(43, 80, 170, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-right: linear-gradient(90deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-bottom: linear-gradient(180deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-left: linear-gradient(270deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-top-right: linear-gradient(45deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-bottom-right: linear-gradient(135deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-top-left: linear-gradient(225deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-bottom-left: linear-gradient(315deg, #f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);
+$gradient-radial: radial-gradient(#f7567cff, #30c5ffff, #f5e960ff, #06d6a0ff, #2b50aaff);

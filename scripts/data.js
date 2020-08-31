@@ -1,5 +1,5 @@
 var xmlhttp = new XMLHttpRequest();
-var url = 'http://localhost:3000/cardS';
+var url = 'http://localhost:3000/cards';
 
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -15,6 +15,6 @@ xmlhttp.send();
 
 let data = []
 const thearray = (arr) => {
-data = arr
-return data}
+                data = arr
+                return data}
 
